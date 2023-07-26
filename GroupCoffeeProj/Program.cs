@@ -1,3 +1,10 @@
 ﻿// Coffee Shop Project
 
-//string filePath = "../../../CoffeeShop.txt";
+//using file_io;
+
+string filePath = "../../../CoffeeShop.txt";
+
+if (File.Exists(filePath) == false)
+{
+    StreamWriter coffeeWriter = new StreamWriter(filePath);
+}
