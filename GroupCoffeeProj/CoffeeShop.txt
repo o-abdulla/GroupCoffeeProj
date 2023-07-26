@@ -1,0 +1,14 @@
+Espresso
+Cream/no cream > Espresso/Drinks
+Sugar > Caf/Decaf  
+Hot/Cold 
+
+Name | Category | Descr. | Price | Esp/Dri | Caf/Decaf | Hot/Cold
+Espresso | Beverages | "single espresso" |  2.75 | esp | caf | Hot
+Macchiato | Beverages | "single espresso topped with small amount of foamed milk" | 3.00 | esp | caf | hot
+Cortado | Beverages | "single espresso mixed with equal part steamed milk" | 3.50 | caf | hot
+Cappuccino | Beverages | "single espresso topped with steamed milk, with a layer of foamed milk on top" | 3.75 | esp | caf | hot
+Latte | Beverages | "single espresso with steamed milk" | 4.00 | esp | caf | hot  
+Croissant | Food | "buttery, flaky, crescent pastry, invented in France and beloved the world over  
+
+Drinks
