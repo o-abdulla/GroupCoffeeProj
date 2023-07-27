@@ -1,5 +1,6 @@
 ﻿// Coffee Shop Project
 using TimTool;
+using TimTool1;
 //using file_io;
 
 using GroupCoffeeProj;
@@ -51,7 +52,22 @@ reader.Close();
 //{
 //    Console.WriteLine(i);
 //}
-Items name =Menu.Str(menu);
+bool continueOrdering;
+List<Items> listOrdered = new List<Items>();
+
+while (true)
+{
+    Items order = Menu.Str(menu);
+    Console.Write($"How many {order.Name.ToString().Trim()}'s\n" +
+        $"would you like ");
+    int amount = Gatekeeper.GetPositiveInputInt();
+    for (int i = 1; i <= amount; i++)
+    {
+        listOrdered.Add(order);
+    }
+    continueOrdering = Gatekeeper.GetContinue();
+}
+
 
 
 
