@@ -13,7 +13,7 @@ namespace TimTool
         //string name =Menu.Str(menuList).ToLower();
         public static Items Str(List<Items> menus,out bool quit )
         {
-            //Console.Clear();
+            Console.Clear();
             while (true)
             {
                 //Displays the menu 
@@ -41,7 +41,7 @@ namespace TimTool
                     quit = true;
                 }
                 //Rewrite the enter number and the selected category before returning  
-               // Console.Clear();
+                Console.Clear();
                 Console.WriteLine("\n{0,3} \t{1}", result, menus[result - 1]);
                 Console.WriteLine("====================");
                 return menus[result - 1];
