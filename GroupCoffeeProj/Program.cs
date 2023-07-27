@@ -5,7 +5,7 @@
 using GroupCoffeeProj;
 
 string filePath = "../../../CoffeeShop.txt";
-//Name, Category, Description, Price, Cream, Sugar, Hot)
+//Name, Category, Description, Price)
 if (File.Exists(filePath) == false)
 {
     StreamWriter tempWriter = new StreamWriter(filePath);
@@ -15,9 +15,9 @@ if (File.Exists(filePath) == false)
 }
 
 StreamReader reader = new StreamReader(filePath);
-List<Items> menu =new List<Items>();
+List<Items> menu = new List<Items>();
 
-while(true)
+while (true)
 {
     //Name, Category, Description, Price,Cream, Sugar, Hot)
     string line = reader.ReadLine();
@@ -29,9 +29,20 @@ while(true)
     {
         //Name, Category, Description, Price,Cream, Sugar, Hot)
         string[] parts = line.Split("|");
-        Beverages b = new Beverages(parts[0], parts[1], parts[2], decimal.Parse(parts[3]), parts[4], bool.Parse(parts[5]), bool.Parse(parts[6]));
-        menu.Add(b);
-              
+
+        if (parts.Length == 7)
+        {
+            Beverages b = new Beverages(parts[0], parts[1], parts[2], decimal.Parse(parts[3]), parts[4], bool.Parse(parts[5]), bool.Parse(parts[6]));
+            menu.Add(b);
+        }
+        else if (parts.Length == 4)
+        {
+            Food f = new Food(parts[0], parts[1], parts[2], decimal.Parse(parts[3]));
+
+            menu.Add(f);
+
+        }
+
     }
 
 
