@@ -3,7 +3,7 @@ Macchiato | Beverages | Single espresso topped with subtle layer of foamed milk.
 Cortado | Beverages | Single espresso mixed with equal parts steamed milk. | 3.50 | Espresso |true| true
 Cappuccino | Beverages | Single espresso topped with steamed milk, and foamed milk layered on top | 3.75 | Espresso | true | true
 Latte | Beverages | Single espresso with steamed milk. | 4.00 | Espresso| true | true
-Serenity Now Decaf Brew | The way of peace. Decaffeinated seasonal house blend roast. | 3.00 | Specialty | false| true
+Serenity Now Decaf Brew | The way of peace. Decaffeinated seasonal house blend roast. | 3.00 | Specialty | false | true
 Mocha | Beverages | A heavenly blend of espresso, housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 5.00 | Specialty | true | true
 Nitro Cold Brew | Beverages | Housemade cold brew, infused with nitrogen for subtler flavor and creamier texture without added sugar. | 5.50 | Specialty | true | false 
 Hot Cocoa | Beverages | Luxuriant drinkable chocolate. Housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 4.50 | Specialty | false | true
