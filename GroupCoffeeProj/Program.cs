@@ -86,6 +86,9 @@ decimal salesTaxTotal = subTotal * salesTaxRate;
 //    Console.WriteLine($"{i}. {receipt[i].Name}");
 //}
 
+//use count method to get quantity
+//int adultCount = ages.Count(p => p >= 21);
+
 //plain readout of every individual selection (works but is long
 foreach (Items i in listOrdered)
 {
@@ -95,7 +98,24 @@ foreach (Items i in listOrdered)
 Console.WriteLine($"Subtotal: {subTotal:c}");
 Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
 Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
-Console.ReadLine();
 
 
+Console.WriteLine("How would you like to pay - cash, credit, check");
 
+List<string> payment = new List<string>()
+{
+    "cash",
+    "credit",
+    "check"
+};
+
+int paymentMethod = Menu.Int(payment);
+if (paymentMethod == 1)
+{
+    Console.WriteLine("");
+}
+
+//static decimal PaymentCash(decimal payment, decimal total)
+//{
+
+//}

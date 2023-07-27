@@ -50,7 +50,7 @@ namespace TimTool
         //string name =Menu.Int(menuList).ToLower();
         public static int Int(List<string> menus)
         {
-            Console.Clear();
+            //Console.Clear();
             while (true)
             {
                 //Displays the menu 
@@ -69,7 +69,7 @@ namespace TimTool
                 }
 
                 //Rewrite the enter number and the selected category before returning  
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("\n{0,3} \t{1}", result, menus[result - 1]);
                 Console.WriteLine("====================");
                 return result - 1;
