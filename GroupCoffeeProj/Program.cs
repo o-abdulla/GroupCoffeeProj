@@ -22,7 +22,7 @@ while (true)
 {
     //Name, Category, Description, Price,Cream, Sugar, Hot)
     string line = reader.ReadLine();
-    if (line == null)
+    if (line == "pleaseStop")
     {
         break;
     }

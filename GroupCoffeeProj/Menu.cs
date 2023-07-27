@@ -22,7 +22,7 @@ namespace TimTool
                     Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
                 int result;
-                Console.WriteLine("Pleas select a number");
+                Console.WriteLine("Please select a number");
 
                 //Validates the number 
                 while (!int.TryParse(Console.ReadLine().ToLower().Trim(), out result) || result < 0 || result > menus.Count)
@@ -48,8 +48,9 @@ namespace TimTool
                 {
                     Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
+                Console.WriteLine("{0,3} \t{1}", (menus.Count + 2), "Leave the coffeeshop.");
                 int result;
-                Console.WriteLine("Pleas select a number");
+                Console.WriteLine("Please select a number");
 
                 //Validates the number 
                 while (!int.TryParse(Console.ReadLine().ToLower().Trim(), out result) || result < 0 || result > menus.Count)

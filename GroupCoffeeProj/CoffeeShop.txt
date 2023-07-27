@@ -1,20 +1,24 @@
-Espresso | Beverages | "Single espresso." |  2.75 | Espresso | true | true
-Macchiato | Beverages | Single espresso topped with subtle layer of foamed milk." | 3.00 | Espresso|true| true
+Espresso | Beverages | Single long-pull espresso. |  2.75 | Espresso | true | true
+Macchiato | Beverages | Single espresso topped with subtle layer of foamed milk." | 3.00 | Espresso| true| true
 Cortado | Beverages | Single espresso mixed with equal parts steamed milk. | 3.50 |true| true
-Cappuccino | Beverages | Single espresso topped with steamed milk, and foamed milk layered on top | 3.75 | Espresso|true| true
-Latte | Beverages | Single espresso with steamed milk. | 4.00 | Espresso|true| true
+Cappuccino | Beverages | Single espresso topped with steamed milk, and foamed milk layered on top | 3.75 | Espresso | true | true
+Latte | Beverages | Single espresso with steamed milk. | 4.00 | Espresso| true | true
 Serenity Now Decaf Brew | The way of peace. Decaffeinated seasonal house blend roast. | 3.00 | false| true
-Mocha | Beverages | A heavenly blend of espresso, housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 5.00 | Specialty |true| true
-Nitro Cold Brew | Beverages | Housemade cold brew, infused with nitrogen for subtler flavor and creamier texture without added sugar." | Specialty | true | false
-Hot Cocoa | Beverages | Luxuriant drinkable chocolate. Housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | Specialty | false| 4.50
-Green Tea | Beverages | Hand-rolled young green tea leaves, grown exclusively in China's Fujian province. | Tea |true| true
-Iced Tea | Beverages | Seasonal house tea blend served over ice. The perfect refresher. | Tea |true| false   
-Arnold Palmer | Beverages | Ceylon black tea served over ice topped with fresh-squeezed lemonade. | Tea | false| false   
+Mocha | Beverages | A heavenly blend of espresso, housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 5.00 | Specialty | true | true
+Nitro Cold Brew | Beverages | Housemade cold brew, infused with nitrogen for subtler flavor and creamier texture without added sugar." | 5.50 | Specialty | true | false 
+Hot Cocoa | Beverages | Luxuriant drinkable chocolate. Housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 4.50 | Specialty | false 
+Green Tea | Beverages | Hand-rolled young green tea leaves, grown exclusively in China's Fujian province. | 3.00 | Tea | 3.00 | true | true 
+Iced Tea | Beverages | Seasonal house tea blend served over ice. The perfect refresher. | 2.00 | Tea | true |false | 
+Arnold Palmer | Beverages | Ceylon black tea served over ice topped with fresh-squeezed lemonade. | 2.25  | Tea  | false | false   
 Croissant | Food | Buttery, flaky, crescent pastry, invented in France and beloved the world over." | 2.50
 Pain au Chocolat | Food | French pastry consisting of flaky, buttery croissant dough, wrapped around two batons of dark chocolate and baked. | 3.00
 Donut | Food | Choose from our fresh-baked daily selection of glazed, cake, or sour cream doughnuts. | 2.00
 Bacon Egg & Cheese Sandwich | Food | A New York City classic. Two scrambled eggs, bacon, and American cheese on a soft Kaiser roll. | 6.00
+pleaseStop
 
+
+
+//name|category|description|price|drinkType|caf|hot
 //Espresso
 //Cream/no cream > Espresso/Specialty Drinks/Tea
 //Sugar > Caf/Decaf  
