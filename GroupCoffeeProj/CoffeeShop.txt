@@ -5,8 +5,8 @@ Cappuccino | Beverages | Single espresso topped with steamed milk, and foamed mi
 Latte | Beverages | Single espresso with steamed milk. | 4.00 | Espresso| true | true
 Serenity Now Decaf Brew | The way of peace. Decaffeinated seasonal house blend roast. | 3.00 | false| true
 Mocha | Beverages | A heavenly blend of espresso, housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 5.00 | Specialty | true | true
-Nitro Cold Brew | Beverages | Housemade cold brew, infused with nitrogen for subtler flavor and creamier texture without added sugar." | 5.50 | Specialty | true | false 
-Hot Cocoa | Beverages | Luxuriant drinkable chocolate. Housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 4.50 | Specialty | false 
+Nitro Cold Brew | Beverages | Housemade cold brew, infused with nitrogen for subtler flavor and creamier texture without added sugar. | 5.50 | Specialty | true | false 
+Hot Cocoa | Beverages | Luxuriant drinkable chocolate. Housemade chocolate sauce made from chopped fair trade chocolate, and your milk of choice. | 4.50 | Specialty | false | true
 Green Tea | Beverages | Hand-rolled young green tea leaves, grown exclusively in China's Fujian province. | 3.00 | Tea | 3.00 | true | true 
 Iced Tea | Beverages | Seasonal house tea blend served over ice. The perfect refresher. | 2.00 | Tea | true |false | 
 Arnold Palmer | Beverages | Ceylon black tea served over ice topped with fresh-squeezed lemonade. | 2.25  | Tea  | false | false   
