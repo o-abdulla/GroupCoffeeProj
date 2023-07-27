@@ -10,14 +10,14 @@ namespace GroupCoffeeProj
     internal class Beverages : Items
     {
         //properties
-        public bool Cream { get; set; }
+        public string DrinkType { get; set; }
         public bool Sugar { get; set; }
         public bool Hot { get; set; }
         
         //contructor
-        public Beverages(string _name, string _category, string _description, decimal _price, bool _cream, bool _sugar, bool _hot) : base(_name, _category, _description, _price)
+        public Beverages(string _name, string _category, string _description, decimal _price, string _drinktype, bool _sugar, bool _hot) : base(_name, _category, _description, _price)
         {
-            Cream = _cream;
+            DrinkType = _drinktype;
             Sugar = _sugar;
             Hot = _hot;
         }
@@ -25,7 +25,7 @@ namespace GroupCoffeeProj
         //methods
         public override string ToString()
         {
-            return base.ToString() + String.Format("{0,8}{1,6}{2,6}", Cream, Sugar, Hot);
+            return base.ToString() + String.Format("{0,8}{1,6}{2,6}", DrinkType, Sugar, Hot);
         }
     }
 }

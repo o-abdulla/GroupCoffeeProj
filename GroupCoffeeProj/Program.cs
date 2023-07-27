@@ -29,24 +29,21 @@ while(true)
     {
         //Name, Category, Description, Price,Cream, Sugar, Hot)
         string[] parts = line.Split("|");
-        Beverages i = new Beverages(parts[0], parts[1], parts[2], decimal.Parse(parts[3]));
-        if (parts.Length > 4)
-        {
-
-        }
-        
-        
-        
-        //Beverages b = new Beverages((parts[0], parts[1], parts[2], decimal.Parse(parts[3]), parts[4], parts[5], parts[6]));
+        Beverages b = new Beverages(parts[0], parts[1], parts[2], decimal.Parse(parts[3]), parts[4], bool.Parse(parts[5]), bool.Parse(parts[6]));
+        menu.Add(b);
+              
     }
 
 
 
 }
+reader.Close();
 
 
-
-
+foreach (Items i in menu)
+{
+    Console.WriteLine(i);
+}
 
 
 
