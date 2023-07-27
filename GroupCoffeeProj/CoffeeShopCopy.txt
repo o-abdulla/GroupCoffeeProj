@@ -1,0 +1,2 @@
+Espresso | Beverages | "Single espresso." |  2.75 | Espresso | true | true
+Macchiato | Beverages | Single espresso topped with subtle layer of foamed milk." | 3.00 | Espresso|true| true

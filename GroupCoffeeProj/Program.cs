@@ -1,5 +1,5 @@
 ﻿// Coffee Shop Project
-
+using TimTool;
 //using file_io;
 
 using GroupCoffeeProj;
@@ -42,20 +42,16 @@ while (true)
             menu.Add(f);
 
         }
-
     }
-
-
-
 }
 reader.Close();
 
 
-foreach (Items i in menu)
-{
-    Console.WriteLine(i);
-}
-
+//foreach (Items i in menu)
+//{
+//    Console.WriteLine(i);
+//}
+Items name =Menu.Str(menu);
 
 
 

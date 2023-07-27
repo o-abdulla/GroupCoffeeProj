@@ -29,7 +29,7 @@ namespace GroupCoffeeProj
         //methods
         public override string ToString()
         {
-            return base.ToString() + String.Format("{0,8}{1,6}{2,6}{3,6:c}", Name, Category, Description, Price);
+            return  String.Format(" {0,8}{1,6}{2,6}{3,6:c}", Name, Category, Description, Price);
         }
     }
 }
