@@ -1,6 +1,6 @@
 ﻿// Coffee Shop Project
 using TimTool;
-using TimTool1;
+
 //using file_io;
 
 using GroupCoffeeProj;
@@ -17,7 +17,7 @@ if (File.Exists(filePath) == false)
 
 StreamReader reader = new StreamReader(filePath);
 List<Items> menu = new List<Items>();
-
+//Populating list menu 
 while (true)
 {
     //Name, Category, Description, Price,Cream, Sugar, Hot)
@@ -48,28 +48,37 @@ while (true)
 reader.Close();
 
 
-//foreach (Items i in menu)
-//{
-//    Console.WriteLine(i);
-//}
-bool continueOrdering;
+//Displaying list select by number. 
+bool continueOrdering=true;
 List<Items> listOrdered = new List<Items>();
-
-
-while (true)
+while (continueOrdering)
 {
-    Items order = Menu.Str(menu);
-    Console.Write($"How many {order.Name.ToString().Trim()}'s\n" +
-        $"would you like ");
-    int amount = Gatekeeper.GetPositiveInputInt();
-    for (int i = 1; i <= amount; i++)
+    Items order = Menu.Str(menu,out continueOrdering);
+    if (order != null)
     {
-        listOrdered.Add(order);
+        Console.Write($"How many {order.Name.ToString().Trim()}'s\n" +
+            $"would you like ");
+        int amount = Gatekeeper.GetPositiveInputInt();
+        for (int i = 1; i <= amount; i++)
+        {
+            listOrdered.Add(order);
+        }
+
+        continueOrdering = Gatekeeper.GetContinue();
     }
-    continueOrdering = Gatekeeper.GetContinue();
 }
 
+decimal total = 0;
+foreach (Items i in listOrdered)
+{
+    total += i.Price;
+}
+foreach (Items i in listOrdered)
+{
+    Console.WriteLine($"{i.Name} {i.Price}");
+}
 
+Console.WriteLine(total);
 
 
 

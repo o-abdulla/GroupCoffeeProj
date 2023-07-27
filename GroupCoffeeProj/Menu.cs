@@ -11,9 +11,9 @@ namespace TimTool
     internal class Menu
     {
         //string name =Menu.Str(menuList).ToLower();
-        public static Items Str(List<Items> menus)
+        public static Items Str(List<Items> menus,out bool quit )
         {
-            Console.Clear();
+            //Console.Clear();
             while (true)
             {
                 //Displays the menu 
@@ -21,18 +21,27 @@ namespace TimTool
                 {
                     Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
-                Console.WriteLine("{0,3} \t{1}", (menus.Count + 2), "Leave the coffeeshop.");
+                Console.WriteLine("{0,3} \t{1}", (menus.Count + 1), "Leave the coffeeshop.");
                 int result;
                 Console.WriteLine("Please select a number");
 
                 //Validates the number 
-                while (!int.TryParse(Console.ReadLine().ToLower().Trim(), out result) || result < 0 || result > menus.Count)
+                while (!int.TryParse(Console.ReadLine().ToLower().Trim(), out result) || result < 0 || result > menus.Count+1)
                 {
                     Console.WriteLine("Invalid input. Try again with a positive number.");
                 }
-
+                if (result == menus.Count+1)
+                {
+                    Console.WriteLine( "Have a nice day");
+                    quit = false;
+                    return null;
+                }
+                else
+                {
+                    quit = true;
+                }
                 //Rewrite the enter number and the selected category before returning  
-                Console.Clear();
+               // Console.Clear();
                 Console.WriteLine("\n{0,3} \t{1}", result, menus[result - 1]);
                 Console.WriteLine("====================");
                 return menus[result - 1];
