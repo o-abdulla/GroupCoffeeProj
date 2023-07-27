@@ -21,6 +21,7 @@ namespace TimTool
                 {
                     Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
+                Console.WriteLine("{0,3} \t{1}", (menus.Count + 2), "Leave the coffeeshop.");
                 int result;
                 Console.WriteLine("Please select a number");
 
@@ -48,7 +49,7 @@ namespace TimTool
                 {
                     Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
-                Console.WriteLine("{0,3} \t{1}", (menus.Count + 2), "Leave the coffeeshop.");
+                
                 int result;
                 Console.WriteLine("Please select a number");
 
