@@ -68,18 +68,34 @@ while (continueOrdering)
     }
 }
 
-decimal total = 0;
+//calculating subtotal (sum of items * price )
+decimal subTotal = 0;
+decimal salesTaxRate = 0.06m;
+
 foreach (Items i in listOrdered)
 {
-    total += i.Price;
+    subTotal += i.Price;
 }
+decimal salesTaxTotal = subTotal * salesTaxRate;
+//Ethan's simplifed linq  method
+//use .Select and .Distinct to pull fiirst unique instances of objects in list by Name, and make a list of them called "receipt"
+//List<Items> receipt = listOrdered.Select(i => i.Name).Distinct().ToList();
+////print out list with for loop
+//for (int i = 0; i < receipt.Count(); i++)
+//{
+//    Console.WriteLine($"{i}. {receipt[i].Name}");
+//}
+
+//plain readout of every individual selection (works but is long
 foreach (Items i in listOrdered)
 {
     Console.WriteLine($"{i.Name} {i.Price}");
 }
 
-Console.WriteLine(total);
-
+Console.WriteLine($"Subtotal: {subTotal:c}");
+Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
+Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
+Console.ReadLine();
 
 
 
