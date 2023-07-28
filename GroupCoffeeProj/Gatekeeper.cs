@@ -98,7 +98,7 @@ namespace TimTool
         }
 
 
-        public static bool Larger(int x, int y)
+        public static bool Larger(decimal x,decimal y)
         {
             return (x > y)? true: false;
         }

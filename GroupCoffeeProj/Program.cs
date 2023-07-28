@@ -72,11 +72,13 @@ while (continueOrdering)
 decimal subTotal = 0;
 decimal salesTaxRate = 0.06m;
 
+
 foreach (Items i in listOrdered)
 {
     subTotal += i.Price;
 }
 decimal salesTaxTotal = subTotal * salesTaxRate;
+decimal grandTotal = subTotal + salesTaxTotal;
 //Ethan's simplifed linq  method
 //use .Select and .Distinct to pull fiirst unique instances of objects in list by Name, and make a list of them called "receipt"
 //List<Items> receipt = listOrdered.Select(i => i.Name).Distinct().ToList();
@@ -112,7 +114,20 @@ List<string> payment = new List<string>()
 int paymentMethod = Menu.Int(payment);
 if (paymentMethod == 1)
 {
+    //cash
+    Console.WriteLine("Please enter cash amount");
+     bool goodCash = Gatekeeper.Larger(decimal.Parse(Console.ReadLine()), grandTotal);
+}
+else if (paymentMethod == 2)
+{
+    //credit
     Console.WriteLine("");
+}
+else if (paymentMethod == 3)
+{
+    //check
+    Console.WriteLine("");
+
 }
 
 //static decimal PaymentCash(decimal payment, decimal total)
