@@ -5,6 +5,7 @@ using TimTool;
 
 using GroupCoffeeProj;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 
 string filePath = "../../../CoffeeShop.txt";
 //Name, Category, Description, Price)
@@ -166,15 +167,43 @@ else if (paymentMethod == 3)
     //check if numbers with TryParse
     //then if TryParse check passes, convert to String, measure String length
     //check if String length == 8
-    while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum > 0)
+    //****
+    //Routing number 
+    
+    while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum < 0)
     {
         Console.WriteLine("Invalid entry. Please enter only numerals.");
     }
-   
-    Console.WriteLine("Please enter account number");
-    //Validation for 8-17 digit entry
-    Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
-    //Validation for 1-4 digits
+    string routingStr = routingNum.ToString();
+    if (routingStr.Length ==8)
+    {
+        //Account number 
+        Console.WriteLine("Please enter account number");
+        //Validation for 8-17 digit entry
+        int accountNum = 0;
+        while (int.TryParse(Console.ReadLine(), out accountNum) == false || accountNum < 0)
+        {
+            Console.WriteLine("Invalid entry. Please enter only numerals.");
+        }
+        string accountStr = accountNum.ToString();
+        if (accountStr.Length >= 8&& accountStr.Length <= 17)
+        {
+            Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
+            //Validation for 1-4 digits
+            int checkNum = 0;
+            while (int.TryParse(Console.ReadLine(), out checkNum) == false || checkNum < 0)
+            {
+                Console.WriteLine("Invalid entry. Please enter only numerals.");
+            }
+            string checkStr = checkNum.ToString();
+            if (checkStr.Length >= 1 && checkStr.Length <= 4)
+            {
+                Console.WriteLine("Your check has cleared. ");
+            }
+        }
+    }
+    
+
 
 }
 
