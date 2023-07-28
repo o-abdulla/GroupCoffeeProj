@@ -72,7 +72,7 @@ namespace TimTool
                 //Console.Clear();
                 Console.WriteLine("\n{0,3} \t{1}", result, menus[result - 1]);
                 Console.WriteLine("====================");
-                return result - 1;
+                return result;
             }
         }
 

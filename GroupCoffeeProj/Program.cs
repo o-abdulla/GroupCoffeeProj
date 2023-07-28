@@ -4,6 +4,7 @@ using TimTool;
 //using file_io;
 
 using GroupCoffeeProj;
+using System.Runtime.CompilerServices;
 
 string filePath = "../../../CoffeeShop.txt";
 //Name, Category, Description, Price)
@@ -116,7 +117,16 @@ if (paymentMethod == 1)
 {
     //cash
     Console.WriteLine("Please enter cash amount");
-     bool goodCash = Gatekeeper.Larger(decimal.Parse(Console.ReadLine()), grandTotal);
+    decimal cash = 0;
+    while (decimal.TryParse(Console.ReadLine(), out cash) == false)
+    {
+        Console.WriteLine("Only numbers");
+    }
+    if (cash > grandTotal)
+    {
+        decimal change = cash - grandTotal;
+        Console.WriteLine($"Thank you for your purchase your change is: {change:c}");
+    }
 }
 else if (paymentMethod == 2)
 {
