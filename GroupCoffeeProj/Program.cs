@@ -51,11 +51,11 @@ reader.Close();
 
 
 //Displaying list select by number. 
-bool continueOrdering=true;
+bool continueOrdering = true;
 List<Items> listOrdered = new List<Items>();
 while (continueOrdering)
 {
-    Items order = Menu.Str(menu,out continueOrdering);
+    Items order = Menu.Str(menu, out continueOrdering);
     if (order != null)
     {
         Console.Write($"How many {order.Name.ToString().Trim()}'s\n" +
@@ -122,7 +122,7 @@ if (paymentMethod == 1)
     while (true)
     {
         Console.WriteLine("Please enter cash amount:");
-        
+
         while (decimal.TryParse(Console.ReadLine(), out cash) == false)
         {
             Console.WriteLine("Invalid entry. Please enter only numerals.");
@@ -136,14 +136,16 @@ if (paymentMethod == 1)
             Console.WriteLine($"Thank you for your purchase! Your change is: {change:c}");
 
             break;
-        } else if (cash < grandTotal)
+        }
+        else if (cash < grandTotal)
         {
             decimal amountRemaining = grandTotal - cashPaid;
             Console.WriteLine($"Amount paid: {cashPaid:c}");
             Console.WriteLine($"Amount remaining: {amountRemaining:c}");
             Console.WriteLine($"Thank you for your purchase! Please come again.");
- 
-        } else if (cashPaid == grandTotal)
+
+        }
+        else if (cashPaid == grandTotal)
         {
             decimal change = cashPaid - grandTotal;
             Console.WriteLine($"Amount tendered: {cashPaid:c}");
@@ -169,45 +171,50 @@ else if (paymentMethod == 3)
     //check if String length == 8
     //****
     //Routing number 
-    
-    while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum < 0)
+
+    while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum < 0 || routingNum.ToString().Length != 8)
+    {
+        if (routingNum == 0)
+        {
+            Console.WriteLine("Only numbers please.");
+        }
+        else if (routingNum < 0)
+        {
+            Console.WriteLine("Invalid entry. Only positive numbers");
+        }
+        else
+        {
+            Console.WriteLine("Only 8 digits allowed");
+        }
+        Console.WriteLine("Please enter a correct routing number");
+    }
+
+
+    //Account number 
+    Console.WriteLine("Please enter account number");
+    //Validation for 8-17 digit entry
+    ulong accountNum = 0;
+    while (ulong.TryParse(Console.ReadLine(), out accountNum) == false || accountNum < 0 || accountNum.ToString().Length < 8 || accountNum.ToString().Length > 17)
+    {
+        Console.WriteLine("Error. Please enter an account number between 8 - 17 digits.");
+    }
+
+
+    Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
+    //Validation for 1-4 digits
+    int checkNum = 0;
+    while (int.TryParse(Console.ReadLine(), out checkNum) == false || checkNum < 0 || checkNum.ToString().Length < 1 || checkNum.ToString().Length > 4)
     {
         Console.WriteLine("Invalid entry. Please enter only numerals.");
     }
-    string routingStr = routingNum.ToString();
-    if (routingStr.Length ==8)
-    {
-        //Account number 
-        Console.WriteLine("Please enter account number");
-        //Validation for 8-17 digit entry
-        int accountNum = 0;
-        while (int.TryParse(Console.ReadLine(), out accountNum) == false || accountNum < 0)
-        {
-            Console.WriteLine("Invalid entry. Please enter only numerals.");
-        }
-        string accountStr = accountNum.ToString();
-        if (accountStr.Length >= 8&& accountStr.Length <= 17)
-        {
-            Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
-            //Validation for 1-4 digits
-            int checkNum = 0;
-            while (int.TryParse(Console.ReadLine(), out checkNum) == false || checkNum < 0)
-            {
-                Console.WriteLine("Invalid entry. Please enter only numerals.");
-            }
-            string checkStr = checkNum.ToString();
-            if (checkStr.Length >= 1 && checkStr.Length <= 4)
-            {
-                Console.WriteLine("Your check has cleared. ");
-            }
-        }
-    }
-    
+   
+    Console.WriteLine("Your check has cleared.");
+
 
 
 }
 
-Console.ReadLine();
+
 //static decimal PaymentCash(decimal payment, decimal total)
 //{
 
