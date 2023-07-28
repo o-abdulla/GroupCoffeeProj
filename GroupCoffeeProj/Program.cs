@@ -116,16 +116,40 @@ int paymentMethod = Menu.Int(payment);
 if (paymentMethod == 1)
 {
     //cash
-    Console.WriteLine("Please enter cash amount");
     decimal cash = 0;
-    while (decimal.TryParse(Console.ReadLine(), out cash) == false)
+    decimal cashPaid = 0;
+    while (true)
     {
-        Console.WriteLine("Only numbers");
-    }
-    if (cash > grandTotal)
-    {
-        decimal change = cash - grandTotal;
-        Console.WriteLine($"Thank you for your purchase your change is: {change:c}");
+        Console.WriteLine("Please enter cash amount:");
+        
+        while (decimal.TryParse(Console.ReadLine(), out cash) == false)
+        {
+            Console.WriteLine("Invalid entry. Please enter only numerals.");
+        }
+
+        cashPaid += cash;
+        if (cashPaid > grandTotal)
+        {
+            decimal change = cashPaid - grandTotal;
+            Console.WriteLine($"Amount tendered: {cashPaid:c}");
+            Console.WriteLine($"Thank you for your purchase! Your change is: {change:c}");
+
+            break;
+        } else if (cash < grandTotal)
+        {
+            decimal amountRemaining = grandTotal - cashPaid;
+            Console.WriteLine($"Amount paid: {cashPaid:c}");
+            Console.WriteLine($"Amount remaining: {amountRemaining:c}");
+            Console.WriteLine($"Thank you for your purchase! Please come again.");
+ 
+        } else if (cashPaid == grandTotal)
+        {
+            decimal change = cashPaid - grandTotal;
+            Console.WriteLine($"Amount tendered: {cashPaid:c}");
+            Console.WriteLine($"Change: {change:c}");
+            Console.WriteLine($"Thank you for your purchase! Please come again.");
+            break;
+        }
     }
 }
 else if (paymentMethod == 2)
@@ -136,10 +160,25 @@ else if (paymentMethod == 2)
 else if (paymentMethod == 3)
 {
     //check
-    Console.WriteLine("");
+    //Validation for 8 digit entry
+    Console.WriteLine("Please enter routing number");
+    int routingNum = 0;
+    //check if numbers with TryParse
+    //then if TryParse check passes, convert to String, measure String length
+    //check if String length == 8
+    while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum > 0)
+    {
+        Console.WriteLine("Invalid entry. Please enter only numerals.");
+    }
+   
+    Console.WriteLine("Please enter account number");
+    //Validation for 8-17 digit entry
+    Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
+    //Validation for 1-4 digits
 
 }
 
+Console.ReadLine();
 //static decimal PaymentCash(decimal payment, decimal total)
 //{
 
