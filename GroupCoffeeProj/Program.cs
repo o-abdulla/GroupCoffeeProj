@@ -158,7 +158,26 @@ if (paymentMethod == 1)
 else if (paymentMethod == 2)
 {
     //credit
-    Console.WriteLine("");
+    Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
+    ulong cardNum = 0;
+    //16 digit card number validation
+    while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length == 16)
+    {
+        
+        if (cardNum < 0)
+        {
+            Console.WriteLine("Invalid entry. Please enter only positive numbers");
+        }
+        else
+        {
+            Console.WriteLine("Only 16 digits allowed");
+        }
+        Console.WriteLine("Please enter a 16-digit account number.");
+    }
+    //Validation for expiration date (MM/YY)
+
+
+
 }
 else if (paymentMethod == 3)
 {
