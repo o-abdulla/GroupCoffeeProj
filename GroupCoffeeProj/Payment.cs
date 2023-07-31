@@ -28,7 +28,7 @@ namespace GroupCoffeeProj
                 {
                     decimal change = cashPaid - grandTotal;
                     Console.WriteLine($"Amount tendered: {cashPaid:c}");
-                    Console.WriteLine($"Thank you for your purchase! Your change is: {change:c}");
+                    Console.WriteLine($"Your change is: {change:c}");
 
                     break;
                 }
@@ -45,7 +45,7 @@ namespace GroupCoffeeProj
                     decimal change = cashPaid - grandTotal;
                     Console.WriteLine($"Amount tendered: {cashPaid:c}");
                     Console.WriteLine($"Change: {change:c}");
-                    Console.WriteLine($"Thank you for your purchase! Please come again.");
+                    
                     break;
                 }
             }

@@ -7,9 +7,11 @@ using GroupCoffeeProj;
 using System.Runtime.CompilerServices;
 using System.Security.Principal;
 
+//Specify file path of .txt file with menu data
 string filePath = "../../../CoffeeShop.txt";
-List<Items> menu = ImportFile.Menu(filePath);
 
+//file i/o method to call in import of menu from .txt file
+List<Items> menu = ImportFile.Menu(filePath);
 
 //Displaying list select by number. 
 bool continueOrdering = true;
@@ -25,34 +27,33 @@ while (continueOrdering)
         {
             listOrdered.Add(order);
         }
-
         continueOrdering = Gatekeeper.GetContinue();
     }
 }
 
-//calculating subtotal (sum of items * price )
-decimal subTotal = 0;
-decimal salesTaxRate = 0.06m;
+////calculating subtotal (sum of items * price )
+//decimal subTotal = 0;
+//decimal salesTaxRate = 0.06m;
 
-foreach (Items i in listOrdered)
-{
-    subTotal += i.Price;
-}
-decimal salesTaxTotal = subTotal * salesTaxRate;
-decimal grandTotal = subTotal + salesTaxTotal;
+//foreach (Items i in listOrdered)
+//{
+//    subTotal += i.Price;
+//}
+//decimal salesTaxTotal = subTotal * salesTaxRate;
+//decimal grandTotal = subTotal + salesTaxTotal;
 
-//use count method to get quantity
-//int adultCount = ages.Count(p => p >= 21);
-//plain readout of every individual selection (works but is long)
-foreach (Items i in listOrdered)
-{
-    Console.WriteLine($"{i.Name} {i.Price}");
-}
+////use count method to get quantity
+////int adultCount = ages.Count(p => p >= 21);
+////plain readout of every individual selection (works but is long)
+//foreach (Items i in listOrdered)
+//{
+//    Console.WriteLine($"{i.Name} {i.Price}");
+//}
 
-Console.WriteLine($"Subtotal: {subTotal:c}");
-Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
-Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
-
+//Console.WriteLine($"Subtotal: {subTotal:c}");
+//Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
+//Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
+decimal grandTotal = Receipt.PrintReceipt(listOrdered);
 
 Console.WriteLine("How would you like to pay today: cash, card, or check?");
 
@@ -79,3 +80,14 @@ else if (paymentMethod == 3)
 {
     Payment.Check();
 }
+
+
+//Console.Clear();
+    //this is supposed to clear the console but it's not really doing that?
+Console.WriteLine("Thank you for patronage of our fine establishment today. \nHere is your receipt.");
+//inserted 3x newline as placeholder spacer before final receipt
+//Final receipt printout:
+Receipt.PrintReceipt(listOrdered);
+Console.WriteLine("We hope to see you again soon. Have a great day.");
+
+Console.ReadLine();
