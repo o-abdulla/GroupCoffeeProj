@@ -194,15 +194,16 @@ else if (paymentMethod == 2)
         {
             Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
         }
-
+  
         int cvv = 0;
         Console.WriteLine("Enter your 3 digit cvv");
-        string cv = Console.ReadLine();
-        while (int.TryParse(Console.ReadLine(), out cvv) == false || cvv.ToString().Length != 3 || cvv < 0)
+  
+        
+        while (int.TryParse(1+Console.ReadLine(), out cvv) == false || cvv.ToString().Substring(1).Length != 3 || cvv < 0)
         {
             Console.WriteLine("Invalid entry. Please enter a positive 3 digit number");
         }
-
+        string cvvStr=cvv.ToString().Substring(1);
         //date validation
         if (numYear < Timekeeper.GetCurrentYear())
         {
