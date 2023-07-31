@@ -31,28 +31,6 @@ while (continueOrdering)
     }
 }
 
-////calculating subtotal (sum of items * price )
-//decimal subTotal = 0;
-//decimal salesTaxRate = 0.06m;
-
-//foreach (Items i in listOrdered)
-//{
-//    subTotal += i.Price;
-//}
-//decimal salesTaxTotal = subTotal * salesTaxRate;
-//decimal grandTotal = subTotal + salesTaxTotal;
-
-////use count method to get quantity
-////int adultCount = ages.Count(p => p >= 21);
-////plain readout of every individual selection (works but is long)
-//foreach (Items i in listOrdered)
-//{
-//    Console.WriteLine($"{i.Name} {i.Price}");
-//}
-
-//Console.WriteLine($"Subtotal: {subTotal:c}");
-//Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
-//Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
 decimal grandTotal = Receipt.PrintReceipt(listOrdered);
 
 Console.WriteLine("How would you like to pay today: cash, card, or check?");
