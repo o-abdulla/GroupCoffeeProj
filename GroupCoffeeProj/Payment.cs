@@ -37,7 +37,7 @@ namespace GroupCoffeeProj
                     decimal amountRemaining = grandTotal - cashPaid;
                     Console.WriteLine($"Amount paid: {cashPaid:c}");
                     Console.WriteLine($"Amount remaining: {amountRemaining:c}");
-                    Console.WriteLine($"Thank you for your purchase! Please come again.");
+                    Console.WriteLine($"Please enter remaining payment");
 
                 }
                 else if (cashPaid == grandTotal)
@@ -113,11 +113,59 @@ namespace GroupCoffeeProj
                     Console.WriteLine("Invalid entry. Please enter a positive 3 digit number");
                 }
                 string cvvStr = cvv.ToString().Substring(1);
-
+                
             }
+            Console.WriteLine("Card Accepted! Thank you, please come again.");
 
         }
 
+        public static void Check()
+        {
+            Console.WriteLine("Please enter routing number:");
+            int routingNum = 0;
+            //check if numbers with TryParse
+            //then if TryParse check passes, convert to String, measure String length
+            //check if String length == 8
+            //****
+            //Routing number 
+
+            while (int.TryParse(Console.ReadLine(), out routingNum) == false || routingNum < 0 || routingNum.ToString().Length != 8)
+            {
+                if (routingNum == 0)
+                {
+                    Console.WriteLine("Only numbers please.");
+                }
+                else if (routingNum < 0)
+                {
+                    Console.WriteLine("Invalid entry. Only positive numbers");
+                }
+                else
+                {
+                    Console.WriteLine("Only 8 digits allowed");
+                }
+                Console.WriteLine("Please enter a correct routing number");
+            }
+
+
+            //Account number 
+            Console.WriteLine("Please enter account number:");
+            //Validation for 8-17 digit entry
+            ulong accountNum = 0;
+            while (ulong.TryParse(Console.ReadLine(), out accountNum) == false || accountNum < 0 || accountNum.ToString().Length < 8 || accountNum.ToString().Length > 17)
+            {
+                Console.WriteLine("Error. Please enter an account number between 8 - 17 digits.");
+            }
+
+
+            Console.WriteLine("Please enter check number. No funny business, OK.");
+            //Validation for 1-4 digits
+            int checkNum = 0;
+            while (int.TryParse(Console.ReadLine(), out checkNum) == false || checkNum < 0 || checkNum.ToString().Length < 1 || checkNum.ToString().Length > 4)
+            {
+                Console.WriteLine("Invalid entry. Please enter only numerals.");
+            }
+            Console.WriteLine("Check entry successful.");
+        }
 
     }
 }
