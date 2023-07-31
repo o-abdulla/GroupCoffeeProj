@@ -158,56 +158,61 @@ if (paymentMethod == 1)
 //2. Card payment
 else if (paymentMethod == 2)
 {
-    while (true) 
+    bool cardValidate = false;
+    while (!cardValidate) 
     {
-
-        Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
-        ulong cardNum = 0;
-        //16 digit card number validation
-        while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
+        do
         {
-
-            if (cardNum < 0)
+            cardValidate = true;
+            Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
+            ulong cardNum = 0;
+            //16 digit card number validation
+            while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
             {
-                Console.WriteLine("Invalid entry. Please enter only positive numbers");
+
+                if (cardNum < 0)
+                {
+                    Console.WriteLine("Invalid entry. Please enter only positive numbers");
+                }
+                else
+                {
+                    Console.WriteLine("Only 16 digits allowed");
+                }
+                Console.WriteLine("Please enter a 16-digit account number.");
             }
-            else
+            //Validation for expiration date (MM/YY)
+
+
+            int numMonth = 0;
+            Console.WriteLine("Please enter two (2) digit card expiration month (MM)");
+            while (int.TryParse(Console.ReadLine(), out numMonth) == false || numMonth.ToString().Length > 2 || numMonth <= 0 || numMonth > 12)
             {
-                Console.WriteLine("Only 16 digits allowed");
+                Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit month");
             }
-            Console.WriteLine("Please enter a 16-digit account number.");
-        }
-        //Validation for expiration date (MM/YY)
 
 
-        int numMonth = 0;
-        Console.WriteLine("Please enter two (2) digit card expiration month (MM)");
-        while (int.TryParse(Console.ReadLine(), out numMonth) == false || numMonth.ToString().Length > 2 || numMonth <= 0)
-        {
-            Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
-        }
+            int numYear = 0;
+            Console.WriteLine("Please enter two (2) digit card expiration year (YY)");
+            while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
+            {
+                Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit year (please insure the card is still valid)");
+            }
 
-
-        int numYear = 0;
-        Console.WriteLine("Please enter two (2) digit card expiration year (YY)");
-        while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
-        {
-            Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
-        }
-
-        //date validation
-        if (numYear < Timekeeper.GetCurrentYear())
-        {
-            Console.WriteLine("Card expired.");
-        }
-        else if (numYear == Timekeeper.GetCurrentYear())
-        {
-            if (numMonth < Timekeeper.GetCurrentMonth())
+            //date validation
+            if (numYear < Timekeeper.GetCurrentYearAbb())
             {
                 Console.WriteLine("Card expired.");
+                cardValidate = false;
             }
-        } 
-
+            else if (numYear == Timekeeper.GetCurrentYearAbb())
+            {
+                if (numMonth < Timekeeper.GetCurrentMonth())
+                {
+                    Console.WriteLine("Card expired.");
+                    cardValidate = false;
+                }
+            }
+        } while (!cardValidate);
         Console.WriteLine("Enter your 3 digit cvv");
         int cvv = 0;
         while (int.TryParse(1 + Console.ReadLine(), out cvv) == false || cvv.ToString().Substring(1).Length != 3 || cvv < 0)
