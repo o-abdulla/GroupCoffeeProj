@@ -25,7 +25,7 @@ namespace GroupCoffeeProj
         //methods
         public override string ToString()
         {
-            return base.ToString() + String.Format("{0,8}{1,6}{2,6}", DrinkType, Caf, Hot);
+            return base.ToString() + String.Format("{0,8}", $". {DrinkType}");
         }
     }
 }

@@ -19,9 +19,11 @@ namespace TimTool
                 //Displays the menu 
                 for (int i = 1; i < menus.Count + 1; i++)
                 {
-                    Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
+                    Console.WriteLine("{0,3} {1}", i, menus[i - 1]);
+                    //Console.WriteLine("{0,3} \t{1}", i, menus[i - 1]);
                 }
-                Console.WriteLine("{0,3} \t{1}", (menus.Count + 1), "Leave the coffeeshop.");
+                //we took out the tabs
+                Console.WriteLine("{0,3} {1}", (menus.Count + 1), "Leave the coffeeshop.");
                 int result;
                 Console.WriteLine("Please select a number");
 

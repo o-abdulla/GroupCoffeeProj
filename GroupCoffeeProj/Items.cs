@@ -27,9 +27,10 @@ namespace GroupCoffeeProj
         }
 
         //methods
+        //Displaying the menu item as formatted strings
         public override string ToString()
         {
-            return  String.Format(" {0,8}{1,6}{2,6}{3,6:c}", Name, Category, Description, Price);
+            return  String.Format(" {0,-30}{1,-11}\n{4,4}{2,6}{3,6:c}", Name, Category, Description, Price, " ");
         }
     }
 }

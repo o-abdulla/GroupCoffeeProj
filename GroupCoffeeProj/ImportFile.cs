@@ -35,7 +35,7 @@ namespace GroupCoffeeProj
                 {
                     //Name, Category, Description, Price,Cream, Sugar, Hot)
                     string[] parts = line.Split("|");
-
+                    parts.Select(p => p.Trim());
                     if (parts.Length == 7)
                     {
                         Beverages b = new Beverages(parts[0], parts[1], parts[2], decimal.Parse(parts[3]), parts[4], bool.Parse(parts[5]), bool.Parse(parts[6]));

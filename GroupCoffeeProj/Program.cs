@@ -81,7 +81,6 @@ else if (paymentMethod == 3)
     Payment.Check();
 }
 
-
 Console.Clear();
     //this is supposed to clear the console but it's not really doing that?
 Console.WriteLine("Thank you for patronage of our fine establishment today. \nHere is your receipt.");
