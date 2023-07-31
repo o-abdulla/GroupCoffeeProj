@@ -58,8 +58,7 @@ while (continueOrdering)
     Items order = Menu.Str(menu, out continueOrdering);
     if (order != null)
     {
-        Console.Write($"How many {order.Name.ToString().Trim()}'s\n" +
-            $"would you like ");
+        Console.Write($"Excellent choice. How many {order.Name.ToString().Trim()}s would you like?  ");
         int amount = Gatekeeper.GetPositiveInputInt();
         for (int i = 1; i <= amount; i++)
         {
@@ -74,26 +73,16 @@ while (continueOrdering)
 decimal subTotal = 0;
 decimal salesTaxRate = 0.06m;
 
-
 foreach (Items i in listOrdered)
 {
     subTotal += i.Price;
 }
 decimal salesTaxTotal = subTotal * salesTaxRate;
 decimal grandTotal = subTotal + salesTaxTotal;
-//Ethan's simplifed linq  method
-//use .Select and .Distinct to pull fiirst unique instances of objects in list by Name, and make a list of them called "receipt"
-//List<Items> receipt = listOrdered.Select(i => i.Name).Distinct().ToList();
-////print out list with for loop
-//for (int i = 0; i < receipt.Count(); i++)
-//{
-//    Console.WriteLine($"{i}. {receipt[i].Name}");
-//}
 
 //use count method to get quantity
 //int adultCount = ages.Count(p => p >= 21);
-
-//plain readout of every individual selection (works but is long
+//plain readout of every individual selection (works but is long)
 foreach (Items i in listOrdered)
 {
     Console.WriteLine($"{i.Name} {i.Price}");
@@ -104,13 +93,13 @@ Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
 Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
 
 
-Console.WriteLine("How would you like to pay - cash, credit, check");
+Console.WriteLine("How would you like to pay today: cash, card, or check?");
 
 List<string> payment = new List<string>()
 {
-    "cash",
-    "credit",
-    "check"
+    "Cash",
+    "Credit",
+    "Check"
 };
 //1. Cash Payment
 int paymentMethod = Menu.Int(payment);
@@ -121,7 +110,7 @@ if (paymentMethod == 1)
     decimal cashPaid = 0;
     while (true)
     {
-        Console.WriteLine("Please enter cash amount:");
+        Console.Write("Please enter cash amount:  ");
 
         while (decimal.TryParse(Console.ReadLine(), out cash) == false)
         {
@@ -164,7 +153,7 @@ else if (paymentMethod == 2)
         do
         {
             cardValidate = true;
-            Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
+            Console.WriteLine("Please enter 16-digit card number. \nWe do not accept American Express.");
             ulong cardNum = 0;
             //16 digit card number validation
             while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
@@ -184,36 +173,35 @@ else if (paymentMethod == 2)
 
 
             int numMonth = 0;
-            Console.WriteLine("Please enter two (2) digit card expiration month (MM)");
+            Console.Write("Please enter two (2) digit card expiration month (MM):  ");
             while (int.TryParse(Console.ReadLine(), out numMonth) == false || numMonth.ToString().Length > 2 || numMonth <= 0 || numMonth > 12)
             {
                 Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit month");
             }
 
-
             int numYear = 0;
-            Console.WriteLine("Please enter two (2) digit card expiration year (YY)");
+            Console.Write("Please enter two (2) digit card expiration year (YY):  ");
             while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
             {
-                Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit year (please insure the card is still valid)");
+                Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit year Please also ensure the card is still valid.");
             }
 
             //date validation
             if (numYear < Timekeeper.GetCurrentYearAbb())
             {
-                Console.WriteLine("Card expired.");
+                Console.WriteLine("Card is expired.");
                 cardValidate = false;
             }
             else if (numYear == Timekeeper.GetCurrentYearAbb())
             {
                 if (numMonth < Timekeeper.GetCurrentMonth())
                 {
-                    Console.WriteLine("Card expired.");
+                    Console.WriteLine("Card is expired.");
                     cardValidate = false;
                 }
             }
         } while (!cardValidate);
-        Console.WriteLine("Enter your 3 digit cvv");
+        Console.Write("Enter your 3 digit CVV code:  ");
         int cvv = 0;
         while (int.TryParse(1 + Console.ReadLine(), out cvv) == false || cvv.ToString().Substring(1).Length != 3 || cvv < 0)
         {
@@ -228,7 +216,7 @@ else if (paymentMethod == 3)
 {
 
     //Validation for 8 digit entry
-    Console.WriteLine("Please enter routing number");
+    Console.WriteLine("Please enter routing number:");
     int routingNum = 0;
     //check if numbers with TryParse
     //then if TryParse check passes, convert to String, measure String length
@@ -255,7 +243,7 @@ else if (paymentMethod == 3)
 
 
     //Account number 
-    Console.WriteLine("Please enter account number");
+    Console.WriteLine("Please enter account number:");
     //Validation for 8-17 digit entry
     ulong accountNum = 0;
     while (ulong.TryParse(Console.ReadLine(), out accountNum) == false || accountNum < 0 || accountNum.ToString().Length < 8 || accountNum.ToString().Length > 17)
@@ -264,22 +252,12 @@ else if (paymentMethod == 3)
     }
 
 
-    Console.WriteLine("Please enter check number. NO FUNNY BUSINESS OK");
+    Console.WriteLine("Please enter check number. No funny business, OK.");
     //Validation for 1-4 digits
     int checkNum = 0;
     while (int.TryParse(Console.ReadLine(), out checkNum) == false || checkNum < 0 || checkNum.ToString().Length < 1 || checkNum.ToString().Length > 4)
     {
         Console.WriteLine("Invalid entry. Please enter only numerals.");
     }
-
-    Console.WriteLine("Your check has cleared.");
-
-
-
+    Console.WriteLine("Check entry successful.");
 }
-
-
-//static decimal PaymentCash(decimal payment, decimal total)
-//{
-
-//}
