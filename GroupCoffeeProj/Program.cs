@@ -112,11 +112,11 @@ List<string> payment = new List<string>()
     "credit",
     "check"
 };
-
+//1. Cash Payment
 int paymentMethod = Menu.Int(payment);
 if (paymentMethod == 1)
 {
-    //cash
+
     decimal cash = 0;
     decimal cashPaid = 0;
     while (true)
@@ -155,64 +155,65 @@ if (paymentMethod == 1)
         }
     }
 }
+//2. Card payment
 else if (paymentMethod == 2)
 {
-    //credit
-    Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
-    ulong cardNum = 0;
-    //16 digit card number validation
-    while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
-    {
-        
-        if (cardNum < 0)
+    while (true) {
+
+
+        Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
+        ulong cardNum = 0;
+        //16 digit card number validation
+        while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
         {
-            Console.WriteLine("Invalid entry. Please enter only positive numbers");
+
+            if (cardNum < 0)
+            {
+                Console.WriteLine("Invalid entry. Please enter only positive numbers");
+            }
+            else
+            {
+                Console.WriteLine("Only 16 digits allowed");
+            }
+            Console.WriteLine("Please enter a 16-digit account number.");
         }
-        else
+        //Validation for expiration date (MM/YY)
+
+
+        int numMonth = 0;
+        Console.WriteLine("Please enter two (2) digit card expiration month (MM)");
+        while (int.TryParse(Console.ReadLine(), out numMonth) == false || numMonth.ToString().Length > 2 || numMonth <= 0)
         {
-            Console.WriteLine("Only 16 digits allowed");
+            Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
         }
-        Console.WriteLine("Please enter a 16-digit account number.");
-    }
-    //Validation for expiration date (MM/YY)
 
 
-    int numMonth = 0;
-    Console.WriteLine("Please enter two digit month ");
-    while (int.TryParse(Console.ReadLine(), out numMonth) == false ||numMonth.ToString().Length!=2||numMonth<0)
-    { 
-        Console.WriteLine("Invalid entry. Please enter only positive numbers two digit numbers");
-    }
-
-
-    int numYear = 0;
-    Console.WriteLine("Please enter two didit Year");
-    while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
-    {
-        Console.WriteLine("Invalid entry. Please enter only positive numbers two digit numbers");
-    }
-   
-
-    //date validat
-    if (numYear<Timekeeper.GetCerentYear())
-    {
-        Console.WriteLine("card expired ");
-    }
-    else if (numYear==Timekeeper.GetCerentYear())
-    {
-        if (numMonth<Timekeeper.GetCerentMonth())
+        int numYear = 0;
+        Console.WriteLine("Please enter two (2) digit card expiration year (YY)");
+        while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
         {
-            Console.WriteLine("card expired ");
+            Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
+        }
+
+
+        //date validation
+        if (numYear < Timekeeper.GetCurrentYear())
+        {
+            Console.WriteLine("Card expired.");
+        }
+        else if (numYear == Timekeeper.GetCurrentYear())
+        {
+            if (numMonth < Timekeeper.GetCurrentMonth())
+            {
+                Console.WriteLine("Card expired.");
+            }
         }
     }
-
-
-
-
 }
+//3. Check Payment
 else if (paymentMethod == 3)
 {
-    //check
+
     //Validation for 8 digit entry
     Console.WriteLine("Please enter routing number");
     int routingNum = 0;
@@ -257,7 +258,7 @@ else if (paymentMethod == 3)
     {
         Console.WriteLine("Invalid entry. Please enter only numerals.");
     }
-   
+
     Console.WriteLine("Your check has cleared.");
 
 

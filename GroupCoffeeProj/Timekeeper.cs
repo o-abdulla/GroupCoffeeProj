@@ -9,7 +9,7 @@ namespace TimTool
     internal class Timekeeper
     {
         // MM/DD/YYYY
-       public static List<string> GetCerentMonthDayYear()
+       public static List<string> GetCurrentMonthDayYear()
         {
             string date = DateTime.Now.ToString("M/d/yyyy");
             List<string> monthYear = new List<string>();
@@ -17,27 +17,27 @@ namespace TimTool
             return monthYear;
         }
         // DD
-        public static int GetCerentDay() 
+        public static int GetCurrentDay() 
         {
-            List<string> monthYear = GetCerentMonthDayYear();
+            List<string> monthYear = GetCurrentMonthDayYear();
             return int.Parse(monthYear[1]);
         }
         //MM
-        public static int GetCerentMonth()
+        public static int GetCurrentMonth()
         {
-            List<string> monthYear = GetCerentMonthDayYear();
+            List<string> monthYear = GetCurrentMonthDayYear();
             return int.Parse(monthYear[0]);
         }
         //YYYY
-        public static int GetCerentYear()
+        public static int GetCurrentYear()
         {
-            List<string> monthYear = GetCerentMonthDayYear();
+            List<string> monthYear = GetCurrentMonthDayYear();
             return int.Parse(monthYear[2]);
         }
         //YY
-        public static int GetCerentYearAbb() 
+        public static int GetCurrentYearAbb() 
         {
-            return int.Parse(GetCerentYear().ToString().Substring(2, 2));
+            return int.Parse(GetCurrentYear().ToString().Substring(2, 2));
         }
     }
 }
