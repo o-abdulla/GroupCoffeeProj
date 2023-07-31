@@ -82,7 +82,7 @@ else if (paymentMethod == 3)
 }
 
 
-//Console.Clear();
+Console.Clear();
     //this is supposed to clear the console but it's not really doing that?
 Console.WriteLine("Thank you for patronage of our fine establishment today. \nHere is your receipt.");
 //inserted 3x newline as placeholder spacer before final receipt
@@ -90,4 +90,4 @@ Console.WriteLine("Thank you for patronage of our fine establishment today. \nHe
 Receipt.PrintReceipt(listOrdered);
 Console.WriteLine("We hope to see you again soon. Have a great day.");
 
-Console.ReadLine();
+//Console.ReadLine();

@@ -21,14 +21,14 @@ namespace GroupCoffeeProj
             //plain readout of every individual selection (works but is long)
             foreach (Items i in listOrdered)
             {
-                Console.WriteLine($"{i.Name} {i.Price}");
+                Console.WriteLine("{0,15} {1,6:c}",i.Name , i.Price);
             }
 
             //Display readout of subtotal, sales tax, and grand total
-            Console.WriteLine($"Subtotal: {subTotal:c}");
-            Console.WriteLine($"Sales Tax: {subTotal * salesTaxRate:c}");
-            Console.WriteLine($"Grand Total: {subTotal + salesTaxTotal:c}");
-            Console.WriteLine($"\n\n\n");
+            Console.WriteLine(String.Format("{0,15} {1,6:c}","Subtotal: ",subTotal));
+            Console.WriteLine(String.Format("{0,15} {1,6:c}","Sales Tax: ",(salesTaxTotal)));
+            Console.WriteLine(String.Format("{0,15} {1,6:c}", "Grand Total: ",(grandTotal)));
+            Console.WriteLine("\n\n\n");
             return grandTotal;
 
             

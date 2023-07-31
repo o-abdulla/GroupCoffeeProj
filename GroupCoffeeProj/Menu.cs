@@ -50,7 +50,7 @@ namespace TimTool
         //string name =Menu.Int(menuList).ToLower();
         public static int Int(List<string> menus)
         {
-            //Console.Clear();
+           // Console.Clear();
             while (true)
             {
                 //Displays the menu 
