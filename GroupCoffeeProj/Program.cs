@@ -161,7 +161,7 @@ else if (paymentMethod == 2)
     Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
     ulong cardNum = 0;
     //16 digit card number validation
-    while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length == 16)
+    while (ulong.TryParse(Console.ReadLine(), out cardNum) == false || cardNum < 0 || cardNum.ToString().Length != 16)
     {
         
         if (cardNum < 0)
@@ -175,7 +175,38 @@ else if (paymentMethod == 2)
         Console.WriteLine("Please enter a 16-digit account number.");
     }
     //Validation for expiration date (MM/YY)
-    
+
+
+    int numMonth = 0;
+    Console.WriteLine("Please enter two digit month ");
+    while (int.TryParse(Console.ReadLine(), out numMonth) == false ||numMonth.ToString().Length!=2||numMonth<0)
+    { 
+        Console.WriteLine("Invalid entry. Please enter only positive numbers two digit numbers");
+    }
+
+
+    int numYear = 0;
+    Console.WriteLine("Please enter two didit Year");
+    while (int.TryParse(Console.ReadLine(), out numYear) == false || numYear.ToString().Length != 2 || numYear < 0)
+    {
+        Console.WriteLine("Invalid entry. Please enter only positive numbers two digit numbers");
+    }
+   
+
+    //date validat
+    if (numYear<Timekeeper.GetCerentYear())
+    {
+        Console.WriteLine("card expired ");
+    }
+    else if (numYear==Timekeeper.GetCerentYear())
+    {
+        if (numMonth<Timekeeper.GetCerentMonth())
+        {
+            Console.WriteLine("card expired ");
+        }
+    }
+
+
 
 
 }

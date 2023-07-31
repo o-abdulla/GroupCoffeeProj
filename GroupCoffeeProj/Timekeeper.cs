@@ -17,29 +17,27 @@ namespace TimTool
             return monthYear;
         }
         // DD
-        public static string GetCerentDay() 
+        public static int GetCerentDay() 
         {
             List<string> monthYear = GetCerentMonthDayYear();
-            return monthYear[1];
+            return int.Parse(monthYear[1]);
         }
         //MM
-        public static string GetCerentMonth()
+        public static int GetCerentMonth()
         {
             List<string> monthYear = GetCerentMonthDayYear();
-            return monthYear[0];
+            return int.Parse(monthYear[0]);
         }
         //YYYY
-        public static string GetCerentYear()
+        public static int GetCerentYear()
         {
             List<string> monthYear = GetCerentMonthDayYear();
-            return monthYear[2];
+            return int.Parse(monthYear[2]);
         }
         //YY
-        public static string GetCerentYearAbb() 
+        public static int GetCerentYearAbb() 
         {
-            return GetCerentYear().Substring(2, 2);
+            return int.Parse(GetCerentYear().ToString().Substring(2, 2));
         }
-
-
     }
 }
