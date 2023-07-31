@@ -158,8 +158,8 @@ if (paymentMethod == 1)
 //2. Card payment
 else if (paymentMethod == 2)
 {
-    while (true) {
-
+    while (true) 
+    {
 
         Console.WriteLine("Please enter 16-digit card number. We do not accept American Express.");
         ulong cardNum = 0;
@@ -195,6 +195,13 @@ else if (paymentMethod == 2)
             Console.WriteLine("Invalid entry. Please enter only positive numbers and two digit numbers");
         }
 
+        int cvv = 0;
+        Console.WriteLine("Enter your 3 digit cvv");
+        string cv = Console.ReadLine();
+        while (int.TryParse(Console.ReadLine(), out cvv) == false || cvv.ToString().Length != 3 || cvv < 0)
+        {
+            Console.WriteLine("Invalid entry. Please enter a positive 3 digit number");
+        }
 
         //date validation
         if (numYear < Timekeeper.GetCurrentYear())
