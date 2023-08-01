@@ -13,7 +13,7 @@ string filePath = "../../../CoffeeShop.txt";
 //file i/o method to call in import of menu from .txt file
 List<Items> menu = ImportFile.Menu(filePath);
 
-Console.WriteLine("Welcome to The D.O.T. Coffeeshop & Boulangerie.\n");
+
 
 //Displaying list select by number. 
 bool continueOrdering = true;

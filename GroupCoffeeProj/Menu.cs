@@ -14,6 +14,7 @@ namespace TimTool
         public static Items Str(List<Items> menus,out bool quit )
         {
             Console.Clear();
+            Console.WriteLine("Welcome to The D.O.T. Coffeeshop & Boulangerie.\n");
             while (true)
             {
                 //Displays the menu 
