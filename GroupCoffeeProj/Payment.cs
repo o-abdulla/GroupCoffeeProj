@@ -9,13 +9,15 @@ namespace GroupCoffeeProj
 {
     internal class Payment
     {
-        public static void Cash(decimal grandTotal)
+        public static decimal Cash(decimal grandTotal)
         {
 
             decimal cash = 0;
             decimal cashPaid = 0;
+            decimal amountRemaining=0;
             while (true)
             {
+                
                 Console.Write("Please enter cash amount:  ");
 
                 while (decimal.TryParse(Console.ReadLine(), out cash) == false)
@@ -29,15 +31,17 @@ namespace GroupCoffeeProj
                     decimal change = cashPaid - grandTotal;
                     Console.WriteLine($"Amount tendered: {cashPaid:c}");
                     Console.WriteLine($"Your change is: {change:c}");
+                    return change;
 
-                    break;
+                    
                 }
                 else if (cash < grandTotal)
                 {
-                    decimal amountRemaining = grandTotal - cashPaid;
+                    amountRemaining = grandTotal - cashPaid;
                     Console.WriteLine($"Amount paid: {cashPaid:c}");
                     Console.WriteLine($"Amount remaining: {amountRemaining:c}");
                     Console.WriteLine($"Please enter remaining payment");
+                   
 
                 }
                 else if (cashPaid == grandTotal)
@@ -45,10 +49,11 @@ namespace GroupCoffeeProj
                     decimal change = cashPaid - grandTotal;
                     Console.WriteLine($"Amount tendered: {cashPaid:c}");
                     Console.WriteLine($"Change: {change:c}");
+                    return 0;
                     
-                    break;
                 }
             }
+            
         }
         public static void Card()
         {

@@ -43,9 +43,10 @@ List<string> payment = new List<string>()
 };
 //1. Cash Payment
 int paymentMethod = Menu.Int(payment);
+decimal amountRemaining = 0;
 if (paymentMethod == 1)
 {
-    Payment.Cash(grandTotal);
+    amountRemaining=Payment.Cash(grandTotal);
     
 }
 //2. Card payment
@@ -59,12 +60,12 @@ else if (paymentMethod == 3)
     Payment.Check();
 }
 
-Console.Clear();
+//Console.Clear();
     //this is supposed to clear the console but it's not really doing that?
 Console.WriteLine("Thank you for patronage of our fine establishment today. \nHere is your receipt.");
 //inserted 3x newline as placeholder spacer before final receipt
 //Final receipt printout:
-Receipt.PrintReceipt(listOrdered);
+Receipt.PrintReceipt(listOrdered, amountRemaining);
 Console.WriteLine("We hope to see you again soon. Have a great day.");
 
 //Console.ReadLine();
